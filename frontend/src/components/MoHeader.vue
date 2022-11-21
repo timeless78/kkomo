@@ -99,4 +99,10 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 1280px) {
+  #header {
+    padding: 4em 0 2em 0;
+  }
+}
 </style>

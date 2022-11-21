@@ -1,7 +1,8 @@
 <template>
   <transition name="modal" appear>
-    <div class="modal modal__dim" @click.self="$emit('close')">
+    <div class="modal modal__dim" @click.self="doclose">
       <div class="modal__content">
+        <img :src="imageUrl" alt="image" />
         <p class="modal__text">
           <slot name="modal-text">(여기에 모달 내용이 들어가요)</slot>
         </p>
@@ -12,13 +13,22 @@
 </template>
 <script>
 export default {
+  props: ["imageUrl"],
   data() {
-    return {
-      showModal: false,
-    };
+    return {};
+  },
+  watch: {
+    imageUrl: function() {
+      console.log('watch : ', this.imageUrl);
+      // this.$axios.get(HOST + URL)
+      // .then((response) => {
+      //   this.thumbImgs = response.data;
+      // })
+    }
   },
   methods: {
     doclose: function () {
+      console.log('POPUP-VIEW > doclose');
       this.$emit("close");
     },
   },
@@ -64,7 +74,7 @@ export default {
       font-size: 2.2rem;
       font-weight: bold;
       // content: "Σ(゜ロ゜;)";
-      content: "Oops !";
+      // content: "Oops !";
     }
   }
   &__close {

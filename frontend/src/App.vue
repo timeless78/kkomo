@@ -7,6 +7,7 @@
     <!-- Footer -->
     <MoFooter />
     <PopupView v-show="modalVisible" 
+      v-bind:imageUrl="modalImgUrl"
       v-on:close="modalVisible = false">
       <template v-slot:modal-text>{{ modalContext }}</template>
     </PopupView>
@@ -27,19 +28,20 @@ export default {
     return {
       modalVisible: false,
       modalContext: "",
+      modalImgUrl: "",
     }
   },
   components: {
-    // HelloWorld
     MoHeader,
     MoMain,
     MoFooter,
     PopupView
   },
   methods: {
-    showModal(text) {
-      console.log('showModal', text);
-
+    showModal(file, text) {
+      // console.log('showModal', file, text);
+      // const HOST = "http://localhost:3000";
+      this.modalImgUrl = file;
       this.modalVisible = !this.modalVisible;
       this.modalContext = text;
     }
@@ -50,9 +52,30 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap");
 
-// *{
-//   box-sizing: border-box;
-// }
+*{
+  box-sizing: border-box;
+}
+
+@media(max-width:480px){
+  #main .thumbnails {
+    display: block;
+  }
+}
+
+body.is-loading #wrapper {
+  opacity: 0;
+  -moz-filter: blur(1px);
+  -webkit-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+body.is-covered #wrapper {
+  -moz-filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
 
 #app {
   font-family: "Noto Sans", sans-serif;
