@@ -6,6 +6,7 @@
     <MoMain v-on:open="showModal" />
     <!-- Footer -->
     <MoFooter />
+    <!-- Popup -->
     <PopupView v-show="modalVisible" 
       v-bind:imageUrl="modalImgUrl"
       v-on:close="modalVisible = false">

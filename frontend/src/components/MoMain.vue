@@ -2,11 +2,13 @@
   <div id="main">
     <!-- Thumbnails -->
     <section class="thumbnails">
-      <div v-for="(thumb, key) in thumbImgs" :key="key">
-        <a href="#" v-on:click="openModal(thumb.full, thumb.descript)">
-          <img :src="thumb.pathUrl" alt="image" />
-          <h3>{{thumb.descript}}</h3>
-        </a>
+      <div v-for="(group, key) in thumbImgs" :key="key">
+        <div v-for="(thumb, id) in group.data" :key="id">
+          <a href="#" v-on:click="openModal(thumb.full, thumb.descript)">
+            <img :src="thumb.pathUrl" alt="image" />
+            <h3>{{thumb.descript}}</h3>
+          </a>
+        </div>
       </div>
     </section>
   </div>
@@ -14,6 +16,7 @@
 
 <script>
 // import searchFileList from './common/searchFilelist.js';
+// import tempJson from '@/assets/thumbnails.json'
 
 export default {
   name: 'MoMain',
@@ -24,22 +27,27 @@ export default {
   },
   created: function() {
     const HOST = "";
-
-    // axios.get('/thumbnails')
     this.$axios.get(HOST + '/thumbnails')
       .then((response) => {
         this.thumbImgs = response.data;
 
         // this.thumbImgs.forEach(itor => {
-        //   console.log(itor.pathUrl);
+        //   console.log(itor);
+
+        //   const arrPath = itor.data;
+        //   arrPath.forEach(a => {
+        //     console.log(a);
+        //   })
         // });
       })
 
+    // sample: new URL(`@${thumb.full.replace('/static', '/assets')}`, import.meta.url);
     // for(let i = 1; i < 8; ++i) {
     //   let newObj = { full: '', pathUrl: '', descript: 'Lorem ipsum'};
     //   newObj.full = `@/assets/images/fulls/0${i}.jpg`;
-    //   newObj.pathUrl = require(`@/assets/images/thumbs/0${i}.jpg`);
+    //   newObj.pathUrl = `@/assets/images/thumbs/0${i}.jpg`;
     //   this.thumbImgs.push(newObj);
+    //   console.log(newObj);
     // }
   },
   methods: {
@@ -72,7 +80,7 @@ export default {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: calc(100% / 3);
+    // width: calc(100% / 3);
     padding-left: 2em;
 
     :last-child {
