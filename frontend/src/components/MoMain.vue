@@ -27,7 +27,7 @@ export default {
   },
   created: function() {
     const HOST = "";
-    this.$axios.get(HOST + '/thumbnails')
+    this.$axios.get(HOST + '/thumbnails/getList')
       .then((response) => {
         this.thumbImgs = response.data;
 
@@ -69,7 +69,7 @@ export default {
   -ms-flex-direction: row;
   flex-direction: row;
   position: relative;
-  margin: 0 0 2em -2em;
+  margin: 2em 0 2em 2em;
 
   div {
     display: -moz-flex;
@@ -81,7 +81,8 @@ export default {
     -ms-flex-direction: column;
     flex-direction: column;
     // width: calc(100% / 3);
-    padding-left: 2em;
+    // padding-left: 2em;
+    margin-bottom: 1rem;
 
     :last-child {
       margin-bottom: 0;
@@ -115,7 +116,8 @@ export default {
 
 
     h3 {
-      margin: 1em;
+      margin: 0.2em;
+      padding: 1rem;
     }
 
 

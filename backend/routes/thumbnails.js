@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var thumbnails = require('./thumbnails.json');
 
-router.get('/', function (req, res, next) {
+router.get('/getList', function (req, res, next) {
   res.send(thumbnails);
 });
 

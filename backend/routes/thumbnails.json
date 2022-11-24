@@ -1,5 +1,5 @@
 [{
-  "rows": 3,
+  "count": 2,
   "group": "bag",
   "data": [
     {
@@ -13,19 +13,19 @@
       "full": "/static/images/fulls/02.jpg",
       "pathUrl": "/static/images/thumbs/02.jpg", 
       "descript": "Lorem ipsum"
-    },
+    }
+  ]
+},
+{
+  "count": 3,
+  "group": "bag",
+  "data": [
     {
       "id": 2,
       "full": "/static/images/fulls/03.jpg",
       "pathUrl": "/static/images/thumbs/03.jpg", 
       "descript": "Lorem ipsum"
-    }
-  ]
-},
-{
-  "rows": 4,
-  "group": "bag",
-  "data": [
+    },
     {
       "id": 3,
       "full": "/static/images/fulls/04.jpg",
@@ -37,7 +37,13 @@
       "full": "/static/images/fulls/05.jpg",
       "pathUrl": "/static/images/thumbs/05.jpg", 
       "descript": "Lorem ipsum"
-    },
+    }
+  ]
+},
+{
+  "rows": 2,
+  "group": "bag",
+  "data": [
     {
       "id": 5,
       "full": "/static/images/fulls/06.jpg",

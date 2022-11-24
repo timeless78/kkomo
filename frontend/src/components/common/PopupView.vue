@@ -61,8 +61,8 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      width: 50%;
-      height: 50%;
+      width: 70%;
+      height: 70%;
       transform: translate(-50%, -50%);
       // min-width: 34rem;
       margin: 0px auto;
